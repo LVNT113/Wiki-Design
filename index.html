@@ -29,7 +29,59 @@
       </div>
 
     </div>
+<button class="boton-menu" id="boton-menu" aria-label="Abrir menú" aria-expanded="false">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
+<nav class="menu-temas" id="menu-temas" aria-label="Filtrar temas">
+
+  <button class="menu-item activo" type="button" data-filtro="todos">
+    <span>Todos</span>
+  </button>
+
+  <button class="menu-item" type="button" data-filtro="experiencia-usuario">
+    <img src="img/user-experience.svg" alt="">
+    <span>Experiencia de usuario</span>
+  </button>
+
+  <button class="menu-item" type="button" data-filtro="diseno-web">
+    <img src="img/web-design.svg" alt="">
+    <span>Diseño web</span>
+  </button>
+
+  <button class="menu-item" type="button" data-filtro="design-thinking">
+    <img src="img/design-thinking.svg" alt="">
+    <span>Design Thinking</span>
+  </button>
+
+  <button class="menu-item" type="button" data-filtro="diseno-centrado">
+    <img src="img/user-focus.svg" alt="">
+    <span>Diseño centrado en el usuario</span>
+  </button>
+
+  <button class="menu-item" type="button" data-filtro="diseno-interaccion">
+    <img src="img/interactive.svg" alt="">
+    <span>Diseño de interacción</span>
+  </button>
+
+  <button class="menu-item" type="button" data-filtro="arquitectura-informacion">
+    <img src="img/information.svg" alt="">
+    <span>Arquitectura de la información</span>
+  </button>
+
+  <button class="menu-item" type="button" data-filtro="diseno-navegacion">
+    <img src="img/nav-design.svg" alt="">
+    <span>Diseño de navegación</span>
+  </button>
+
+  <button class="menu-item" type="button" data-filtro="diseno-visual">
+    <img src="img/visual-design.svg" alt="">
+    <span>Diseño visual</span>
+  </button>
+
+</nav>
   </header>
 
   <main>
@@ -48,7 +100,7 @@
 
     <section class="grid-temas">
 
-      <a href="#" class="tarjeta-tema">
+      <a data-tema="experiencia-usuario" href="#" class="tarjeta-tema">
         <div class="imagen-tema">
           <img src="img/01.png" alt="Experiencia de usuario">
         </div>
@@ -59,7 +111,7 @@
         <span class="flecha-tema" aria-hidden="true">→</span>
       </a>
 
-      <a href="https://lvnt113.github.io/web-design/" class="tarjeta-tema">
+      <a data-tema="diseno-web" href="https://lvnt113.github.io/web-design/" class="tarjeta-tema">
         <div class="imagen-tema">
           <img src="img/02.png" alt="Diseño web">
         </div>
@@ -70,7 +122,7 @@
         <span class="flecha-tema" aria-hidden="true">→</span>
       </a>
 
-      <a href="design-thinking.html" class="tarjeta-tema">
+      <a data-tema="design-thinking" href="design-thinking.html" class="tarjeta-tema">
         <div class="imagen-tema">
           <img src="img/03.png" alt="Design Thinking">
         </div>
@@ -81,7 +133,7 @@
         <span class="flecha-tema" aria-hidden="true">→</span>
       </a>
 
-      <a href="#" class="tarjeta-tema">
+      <a data-tema="diseno-centrado" href="#" class="tarjeta-tema">
         <div class="imagen-tema">
           <img src="img/04.png" alt="Diseño centrado en el usuario">
         </div>
@@ -92,7 +144,7 @@
         <span class="flecha-tema" aria-hidden="true">→</span>
       </a>
 
-      <a href="#" class="tarjeta-tema">
+      <a data-tema="diseno-interaccion" href="#" class="tarjeta-tema">
         <div class="imagen-tema">
           <img src="img/05.png" alt="Diseño de interacción">
         </div>
@@ -103,7 +155,7 @@
         <span class="flecha-tema" aria-hidden="true">→</span>
       </a>
 
-      <a href="#" class="tarjeta-tema">
+      <a data-tema="diseno-interaccion" href="#" class="tarjeta-tema">
         <div class="imagen-tema">
           <img src="img/06.png" alt="Arquitectura de la información">
         </div>
@@ -114,7 +166,7 @@
         <span class="flecha-tema" aria-hidden="true">→</span>
       </a>
 
-      <a href="#" class="tarjeta-tema">
+      <a data-tema="diseno-navegacion" href="#" class="tarjeta-tema">
         <div class="imagen-tema">
           <img src="img/07.png" alt="Diseño de navegación">
         </div>
@@ -125,7 +177,7 @@
         <span class="flecha-tema" aria-hidden="true">→</span>
       </a>
 
-      <a href="#" class="tarjeta-tema">
+      <a data-tema="diseno-visual" href="#" class="tarjeta-tema">
         <div class="imagen-tema">
           <img src="img/08.png" alt="Diseño visual">
         </div>
