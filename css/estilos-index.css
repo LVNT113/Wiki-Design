@@ -85,6 +85,77 @@ body {
   height: 58px;
 }
 
+/* MENÚ DE FILTROS */
+
+.menu-temas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 10px 0 0;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.menu-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 7px 13px;
+  border: 1.5px solid #111111;
+  border-radius: 999px;
+  background-color: transparent;
+  color: #111111;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  flex: 0 0 auto;
+  transition: all 0.25s ease;
+}
+
+.menu-item img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.menu-item:hover {
+  background-color: #ffffff;
+  color: #6C4DD3;
+  border-color: #6C4DD3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(108, 77, 211, 0.18);
+}
+
+.menu-item:hover img {
+  transform: scale(1.08);
+}
+
+.menu-item.activo {
+  position: relative;
+  background-color: #F7F4FF;
+  color: #6C4DD3;
+  border-color: #D9D9E3;
+  box-shadow: 0 3px 8px rgba(108, 77, 211, 0.22);
+}
+
+.menu-item.activo::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -11px;
+  left: 0;
+  height: 4px;
+  border-radius: 999px;
+  background-color: #6C4DD3;
+}
+
 /* CONTENIDO DEL HOME */
 
 main {
@@ -299,6 +370,11 @@ main {
     width: 100%;
   }
 
+  .menu-temas {
+  justify-content: flex-start;
+  margin-top: 22px;
+}
+
   main {
     padding: 45px 40px 55px;
   }
@@ -329,7 +405,33 @@ main {
   .header-wiki {
     padding: 28px 24px;
   }
+  
+.menu-temas {
+  justify-content: flex-start;
+  gap: 7px;
+  margin-top: 18px;
+  padding: 8px 0 12px;
+  scrollbar-width: none;
+}
 
+.menu-temas::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-item {
+  padding: 7px 11px;
+  font-size: 9.5px;
+}
+
+.menu-item img {
+  width: 12px;
+  height: 12px;
+}
+
+.menu-item.activo::after {
+  bottom: -9px;
+  height: 3px;
+}
   .titulo-wiki h1 {
     font-size: 42px;
   }
@@ -392,4 +494,10 @@ main {
   .footer-social {
     justify-content: flex-start;
   }
+}
+
+
+/* Oculta las tarjetas que no corresponden al filtro seleccionado */
+.tarjeta-tema.oculta {
+  display: none;
 }
