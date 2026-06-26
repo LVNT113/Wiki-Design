@@ -461,7 +461,9 @@
     </section>
 
   </main>
-
+<button class="btn-arriba" id="btn-arriba" type="button" aria-label="Volver al inicio">
+  ↑
+</button>
   <footer class="footer-wiki">
 
     <div class="footer-logo">
@@ -531,6 +533,25 @@
     });
   });
 </script>
+<script>
+  const botonArriba = document.getElementById("btn-arriba");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 350) {
+      botonArriba.classList.add("visible");
+    } else {
+      botonArriba.classList.remove("visible");
+    }
+  });
+
+  botonArriba.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+  
 </body>
 </html>
 
