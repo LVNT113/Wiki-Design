@@ -22,7 +22,7 @@
       <div class="busqueda-usuario">
         <div class="barra-busqueda">
           <img src="img/lupa.svg" alt="Buscar">
-          <input type="text" placeholder="Buscar temas de diseño...">
+          <input id="buscador" type="text" placeholder="Buscar temas de diseño...">
         </div>
 
         <img class="icono-usuario" src="img/user-icon.svg" alt="Usuario">
@@ -452,10 +452,35 @@
 <script>
   const botonesFiltro = document.querySelectorAll(".menu-item[data-filtro]");
   const tarjetasTema = document.querySelectorAll(".tarjeta-tema");
+  const buscador = document.getElementById("buscador");
+
+  let filtroActual = "todos";
+
+  function actualizarTarjetas() {
+    const textoBusqueda = buscador.value.toLowerCase().trim();
+
+    tarjetasTema.forEach(function (tarjeta) {
+      const temaTarjeta = tarjeta.dataset.tema;
+      const titulo = tarjeta.querySelector("h3").textContent.toLowerCase();
+      const descripcion = tarjeta.querySelector("p").textContent.toLowerCase();
+
+      const coincideTema =
+        filtroActual === "todos" ||
+        temaTarjeta === filtroActual;
+
+      const coincideBusqueda =
+        titulo.includes(textoBusqueda) ||
+        descripcion.includes(textoBusqueda);
+
+      const mostrarTarjeta = coincideTema && coincideBusqueda;
+
+      tarjeta.classList.toggle("oculta", !mostrarTarjeta);
+    });
+  }
 
   botonesFiltro.forEach(function (boton) {
     boton.addEventListener("click", function () {
-      const filtroSeleccionado = boton.dataset.filtro;
+      filtroActual = boton.dataset.filtro;
 
       botonesFiltro.forEach(function (botonMenu) {
         botonMenu.classList.remove("activo");
@@ -463,17 +488,8 @@
 
       boton.classList.add("activo");
 
-      tarjetasTema.forEach(function (tarjeta) {
-        const temaTarjeta = tarjeta.dataset.tema;
+      actualizarTarjetas();
 
-        const mostrarTarjeta =
-          filtroSeleccionado === "todos" ||
-          temaTarjeta === filtroSeleccionado;
-
-        tarjeta.classList.toggle("oculta", !mostrarTarjeta);
-      });
-
-      /* En celular, cierra el menú después de aplicar el filtro */
       const menuTemas = document.getElementById("menu-temas");
       const botonMenu = document.getElementById("boton-menu");
 
@@ -483,6 +499,10 @@
         botonMenu.setAttribute("aria-label", "Abrir menú");
       }
     });
+  });
+
+  buscador.addEventListener("input", function () {
+    actualizarTarjetas();
   });
 </script>
 <script>
